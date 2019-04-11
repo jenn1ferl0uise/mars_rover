@@ -1,3 +1,5 @@
+require 'plateau'
+
 class Rover
     attr_reader :x_coord, :y_coord, :direction
     def initialize(attributes = {})
@@ -59,5 +61,9 @@ class Rover
             turn_right if input == 'R'
         end
     end 
+
+    def rover_output
+        "#{@x_coord} #{@y_coord} #{@direction} "
+    end
 end
    

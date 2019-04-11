@@ -50,7 +50,7 @@ class Rover
         end
     end 
 
-    def rover_output
+    def final_position
         "#{@x_coord} #{@y_coord} #{@direction} "
     end
 end

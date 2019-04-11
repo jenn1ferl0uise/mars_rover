@@ -10,21 +10,27 @@ class NasaController
   end
 
   def interpret_nasa_information
-    information = File.open(@nasa_input).split("\n")
-    @plateau_limit = information.first.spilt
-    @position = information[1].split
-    @instructions = information[2]
+    data = File.read(@nasa_input)
+    information = data.split("\n")
+    # [ "5 5", "1 2 N", "LMLMLMLMM", "3 3 E", "MMRMMRMRRM"]
+    @plateau_limit = information.slice!(0)
+    information.each_slice(2) do |element|
+      @position = element[0]
+      @instructions = element[1]
+    end
   end
 
   def set_plateau_limit
-    @plateau.x_max = @plateau_limit[0].to_i
-    @plateau.y_max = @plateau_limit[1].to_i
+    @plateau.x_max = @plateau_limit[0]
+    @plateau.y_max = @plateau_limit[1]
+    @plateau_limit
   end
 
   def select_rover
-    @rover.x_coord = @position[0].to_i
-    @rover.y_coord = @position[1].to_i
+    @rover.x_coord = @position[0]
+    @rover.y_coord = @position[1]
     @rover.direction = @position[2]
+    @position
   end
 
   def nasa_instructions
@@ -33,5 +39,6 @@ class NasaController
 
   def rover_end
     @rover_output = @rover.final_position
+    @rover_output
   end
 end

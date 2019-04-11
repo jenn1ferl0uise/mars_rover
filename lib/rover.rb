@@ -1,12 +1,20 @@
 require_relative 'plateau'
 
 class Rover
-  attr_reader :x_coord, :y_coord, :direction
+  attr_accessor :x_coord, :y_coord, :direction
   def initialize(attributes = {})
     @x_coord = attributes[:x_coord]
     @y_coord = attributes[:y_coord]
     @direction = attributes[:direction]
     @plateau = Plateau.new
+  end
+
+  def nasa_input(instructions)
+    instructions.each_char do |input|
+      move_forward if input == 'M'
+      turn_left if input == 'L'
+      turn_right if input == 'R'
+    end
   end
 
   def move_forward
@@ -44,15 +52,7 @@ class Rover
     end
   end
 
-  def nasa_input(instructions)
-    instructions.each_char do |input|
-      move_forward if input == 'M'
-      turn_left if input == 'L'
-      turn_right if input == 'R'
-    end
-  end
-
   def final_position
-    "#{@x_coord} #{@y_coord} #{@direction} "
+    puts "#{@x_coord} #{@y_coord} #{@direction}"
   end
 end

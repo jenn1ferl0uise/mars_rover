@@ -1,5 +1,5 @@
 class Plateau
-  attr_reader :x_max, :y_max, :x_min, :y_min
+  attr_accessor :x_max, :y_max, :x_min, :y_min
   def initialize(attributes = {})
     @x_max = attributes[:x_max]
     @y_max = attributes[:y_max]

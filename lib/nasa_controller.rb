@@ -10,30 +10,29 @@ class NasaController
         @rover = Rover.new
     end
 
-    def nasa_input
-    @nasa_input = "
-5 5
-3 1 N
-MLMLMMM
-"
+    def interpret_nasa_input
+    @nasa_input = File.open(nasa_input.txt).split("\n")
+    @plateau_limit = @nasa_input.first.spilt
+    @position = @nasa_input(1).split
+    @instructions = @nasa_input(2)
     end
     def set_plateau_limit
-        limit = @nasa_input.split
-        @plateau.x_max == limit(0).to_i
-        @plateau.y_max == limit(1).to_i
+        @plateau.x_max == @plateau_limit(0).to_i
+        @plateau.y_max == @plateau_limit(1).to_i
     end
 
     def select_rover
-        position = @nasa_input.split
-        @rover.x_coord = position(2).to_i
-        @rover.y_coord = position(3).to_i
-        @rover.direction = position(4)
+        @rover.x_coord = @position(0).to_i
+        @rover.y_coord = @position(1).to_i
+        @rover.direction = @position(2)
     end
 
     def nasa_instructions
-        instructions = @nasa_input.split
-        @rover.nasa_input(instructions(5))
+        @rover.nasa_input(@instructions)
     end
 
+    def rover_end_position
+        @rover_output = @rover.rover_output
+    end
 
 end

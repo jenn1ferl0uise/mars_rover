@@ -16,6 +16,7 @@ class NasaController
     @position = @nasa_input(1).split
     @instructions = @nasa_input(2)
     end
+
     def set_plateau_limit
         @plateau.x_max == @plateau_limit(0).to_i
         @plateau.y_max == @plateau_limit(1).to_i
@@ -31,8 +32,8 @@ class NasaController
         @rover.nasa_input(@instructions)
     end
 
-    def rover_end_position
-        @rover_output = @rover.rover_output
+    def rover_end
+        @rover_output = @rover.final_position
     end
 
 end

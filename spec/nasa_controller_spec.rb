@@ -2,9 +2,16 @@ require 'nasa_controller'
 
 RSpec.describe NasaController do
     let(:nasa_controller) { NasaController.new() }
-    it 'gives a starting string of the max coordinates for the plateau' do
+    it 'is not nil' do
+        expect(nasa_controller).not_to be_nil
     end
-    it 'gives a string that corresponds to a rovers position on the plateau' do
+    describe 'nasa input' do
+        it 'is a string and is not nil' do
+            expect(nasa_controller.nasa_input).to be_a(String)
+            expect(nasa_controller.nasa_input).not_to be_nil
+        end
+    end
+    it 'has an output from the rover' do
     end
     it 'gives string of instructions to the rover L, R & M' do
     end

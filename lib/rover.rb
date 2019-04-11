@@ -54,8 +54,8 @@ class Rover
         end
     end
 
-    def nasa_input(string)
-        string.each_char do |input|
+    def nasa_input(instructions)
+        instructions.each_char do |input|
             move_forward if input == 'M'
             turn_left if input == 'L'
             turn_right if input == 'R'

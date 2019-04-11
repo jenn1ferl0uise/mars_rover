@@ -1,12 +1,16 @@
 require_relative 'plateau'
 
 class Rover
-  attr_reader :x_coord, :y_coord, :direction
+  attr_accessor :x_coord, :y_coord, :direction
   def initialize(attributes = {})
     @x_coord = attributes[:x_coord]
     @y_coord = attributes[:y_coord]
     @direction = attributes[:direction]
     @plateau = Plateau.new
+  end
+
+  def current_position
+    puts "#{@x_coord} #{@y_coord} #{@direction}"
   end
 
   def move_forward
@@ -53,6 +57,6 @@ class Rover
   end
 
   def final_position
-    "#{@x_coord} #{@y_coord} #{@direction} "
+    puts "#{@x_coord} #{@y_coord} #{@direction}"
   end
 end

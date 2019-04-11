@@ -5,11 +5,13 @@ class Router
 
   def run
     @nasa_controller.interpret_nasa_information
-    @nasa_controller.set_plateau_limit
-    until @nasa_controller.nasa_input.nil?
-      @nasa_controller.select_rover
-      @nasa_controller.nasa_instructions
-      @nasa_controller.rover_end
-    end
+    limit = @nasa_controller.set_plateau_limit
+    puts "LIMIT: #{limit}"
+    rover = @nasa_controller.select_rover
+    puts "ROVER1: #{rover}"
+    instructions = @nasa_controller.nasa_instructions
+    puts "NASA: #{instructions}"
+    @nasa_controller.rover_end
+    # puts "ROVER END POSITION: #{rover_end}"
   end
 end

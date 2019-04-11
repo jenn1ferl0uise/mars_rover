@@ -11,7 +11,7 @@ class NasaController
     end
 
     def interpret_nasa_input
-    @nasa_input = File.open(nasa_input.txt).split("\n")
+    @nasa_input = File.open(input_test_file).split("\n")
     @plateau_limit = @nasa_input.first.spilt
     @position = @nasa_input(1).split
     @instructions = @nasa_input(2)

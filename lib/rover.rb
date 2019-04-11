@@ -11,14 +11,10 @@ class Rover
 
     def move_forward
         case @direction
-        when 'N'
-            @y_coord += 1 if @y_coord < @plateau.y_max
-        when 'S'
-            @y_coord -= 1 if @y_coord < @plateau.y_min
-        when 'E'
-            @x_coord += 1 if @x_coord < @plateau.x_max
-        when 'W'
-            @x_coord -= 1 if @x_coord < @plateau.x_min
+        when 'N' : @y_coord += 1 if @y_coord < @plateau.y_max
+        when 'S' : @y_coord -= 1 if @y_coord < @plateau.y_min
+        when 'E' : @x_coord += 1 if @x_coord < @plateau.x_max
+        when 'W' : @x_coord -= 1 if @x_coord < @plateau.x_min
         else
             'Error'
         end
@@ -26,14 +22,10 @@ class Rover
 
     def turn_left
         case @direction
-        when 'N'
-            @direction == 'E' 
-        when 'E'
-            @direction == 'S' 
-        when 'S'
-            @direction == 'W' 
-        when 'W'
-            @direction == 'N' 
+        when 'N' : @direction == 'E' 
+        when 'E' : @direction == 'S' 
+        when 'S' : @direction == 'W' 
+        when 'W' : @direction == 'N' 
         else
             'Error'
         end
@@ -41,14 +33,10 @@ class Rover
 
     def turn_right
         case @direction
-        when 'N'
-            @direction == 'W' 
-        when 'W'
-            @direction == 'S' 
-        when 'S'
-            @direction == 'E' 
-        when 'E'
-            @direction == 'N' 
+        when 'N' : @direction == 'W' 
+        when 'W' : @direction == 'S' 
+        when 'S' : @direction == 'E' 
+        when 'E' : @direction == 'N' 
         else
             'Error'
         end

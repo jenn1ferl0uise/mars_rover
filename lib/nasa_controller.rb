@@ -12,9 +12,12 @@ class NasaController
   def interpret_nasa_information
     data = File.read(@nasa_input)
     information = data.split("\n")
-    @plateau_limit = information.first
-    @position = information[1]
-    @instructions = information[2]
+    # [ "5 5", "1 2 N", "LMLMLMLMM", "3 3 E", "MMRMMRMRRM"]
+    @plateau_limit = information.slice!(0)
+    information.each_slice(2) do |element|
+      @position = element[0]
+      @instructions = element[1]
+    end
   end
 
   def set_plateau_limit

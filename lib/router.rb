@@ -1,6 +1,8 @@
 class Router
-  def initialize(nasa_controller)
+  def initialize(nasa_controller, plateau, rover)
     @nasa_controller = nasa_controller
+    @rover = rover
+    @plateau = plateau
   end
 
   def run
@@ -12,6 +14,5 @@ class Router
     instructions = @nasa_controller.nasa_instructions
     puts "NASA: #{instructions}"
     @nasa_controller.rover_end
-    # puts "ROVER END POSITION: #{rover_end}"
   end
 end

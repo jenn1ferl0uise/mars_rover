@@ -9,8 +9,12 @@ class Rover
     @plateau = Plateau.new
   end
 
-  def current_position
-    puts "#{@x_coord} #{@y_coord} #{@direction}"
+  def nasa_input(instructions)
+    instructions.each_char do |input|
+      move_forward if input == 'M'
+      turn_left if input == 'L'
+      turn_right if input == 'R'
+    end
   end
 
   def move_forward
@@ -45,14 +49,6 @@ class Rover
     when 'E' then @direction == 'N'
     else
       'Error'
-    end
-  end
-
-  def nasa_input(instructions)
-    instructions.each_char do |input|
-      move_forward if input == 'M'
-      turn_left if input == 'L'
-      turn_right if input == 'R'
     end
   end
 

@@ -17,13 +17,39 @@ class Rover
             @x_coord += 1 if @x_coord < @plateau.x_max
         when 'W'
             @x_coord -= 1 if @x_coord < @plateau.x_min
+        else
+            'Error'
         end
     end
 
     def turn_left
+        case @direction
+        when 'N'
+            @direction == 'E' 
+        when 'E'
+            @direction == 'S' 
+        when 'S'
+            @direction == 'W' 
+        when 'W'
+            @direction == 'N' 
+        else
+            'Error'
+        end
     end
 
     def turn_right
+        case @direction
+        when 'N'
+            @direction == 'W' 
+        when 'W'
+            @direction == 'S' 
+        when 'S'
+            @direction == 'E' 
+        when 'E'
+            @direction == 'N' 
+        else
+            'Error'
+        end
     end
 
     def nasa_input(string)

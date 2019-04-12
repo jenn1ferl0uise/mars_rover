@@ -1,14 +1,11 @@
 require_relative 'lib/nasa_controller'
-require_relative 'lib/plateau'
-require_relative 'lib/rover'
 require_relative 'lib/router'
 
-test_file = 'nasa_input.txt'
+input = 'nasa_input.txt'
+output = 'rover_output.txt'
 
-nasa_controller = NasaController.new(nasa_input: test_file)
-rover = Rover.new(nasa_input: test_file)
-plateau = Plateau.new
+nasa_controller = NasaController.new(nasa_input: input, rover_output: output)
 
-router = Router.new(nasa_controller, plateau, rover)
+router = Router.new(nasa_controller)
 
 router.run

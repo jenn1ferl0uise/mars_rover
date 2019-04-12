@@ -20,4 +20,9 @@
 
 # 8. If the rover tries to move past the plateau's limit, it will raise an error.
 
-(Ok so, the error is not actually working, and the output only shows the position of the last selected rover for some reason...)
+(PS :
+ - Ok so, the error is not working, and the output only shows the position of the last selected rover for some reason...
+ - Also I tried to learn TDD, and it really helped me to start the challenge, but I got sidetracked with pry-byebug and irb and so I didn't finish all the tests.
+ - I think if I had more time then I could have it working, but this is what I could do in 3 days.
+ - Thank you!
+)
